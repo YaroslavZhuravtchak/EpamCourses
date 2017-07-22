@@ -23,9 +23,13 @@ public class PerfectNumbers {
         }
     }
     public void findAllPerfectNumbers(int numberOfPerfectNumbers){
+        int perfectNumber;
         System.out.println("Perfect numbers:");
-        for(int i=1; i<=numberOfPerfectNumbers; i++)
-            System.out.print(findPerfectNumber(i)+" ");
+        for(int i=1; i<=numberOfPerfectNumbers; i++) {
+            perfectNumber = findPerfectNumber(i);
+            if(perfectNumber==i)
+            System.out.print(perfectNumber + " ");
+        }
     }
     public int findPerfectNumber(int number){
         int perfectNumber=0;
