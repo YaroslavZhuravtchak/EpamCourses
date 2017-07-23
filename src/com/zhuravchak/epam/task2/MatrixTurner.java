@@ -1,11 +1,10 @@
-/**
- * Created by Yaroslav on 22-Jul-17.
- */
-
 package com.zhuravchak.epam.task2;
 
 import java.util.*;
 
+/**
+ * Created by Yaroslav on 22-Jul-17.
+ */
 public class MatrixTurner {
     private  int size = 6;
 

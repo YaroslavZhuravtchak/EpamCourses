@@ -1,11 +1,10 @@
-/**
- * Created by Yaroslav on 22-Jul-17.
- */
-
 package com.zhuravchak.epam.task1.task1_3;
 
 import java.io.*;
 
+/**
+ * Created by Yaroslav on 22-Jul-17.
+ */
 public class Pyramid {
     private int widthOfPyramid;
 
