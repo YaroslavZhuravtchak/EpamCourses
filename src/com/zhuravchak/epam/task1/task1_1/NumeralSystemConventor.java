@@ -13,16 +13,16 @@ public class NumeralSystemConventor {
 
     public void defineDecimalNumber(){
         System.out.println("Please enter positive decimal integer number:");
-        try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
-            int number=Integer.valueOf(br.readLine());
-            if(number<0){
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+            int number = Integer.valueOf(br.readLine());
+            if (number < 0) {
                 System.out.println("It's not a positive number");
                 return;
             }
             convertDecimalNumber(number);
-        }catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             System.out.println("It's not a integer number");
         }
     }

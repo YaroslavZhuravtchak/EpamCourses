@@ -7,12 +7,12 @@ package com.zhuravchak.epam.task2;
 import java.util.*;
 
 public class MatrixTurner {
-    private  int size= 6;
+    private  int size = 6;
 
     public float[][] generateMatrix(){
-        float[][] matrix= new float[size][size];
+        float[][] matrix = new float[size][size];
         Random random = new Random();
-        for(int i=0;i<size;i++) {
+        for(int i = 0; i < size; i++) {
             for (int j = 0; j < size; j++) {
                 matrix[i][j] = random.nextFloat() + random.nextInt(100) - 50;
             }
