@@ -6,6 +6,7 @@ import java.io.*;
  * Created by Yaroslav on 22-Jul-17.
  */
 public class PerfectNumbers {
+
     public PerfectNumbers(){
         defineNumber();
     }

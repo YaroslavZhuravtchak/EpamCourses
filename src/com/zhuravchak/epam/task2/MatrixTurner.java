@@ -6,6 +6,7 @@ import java.util.*;
  * Created by Yaroslav on 22-Jul-17.
  */
 public class MatrixTurner {
+
     private  int size = 6;
 
     public float[][] generateMatrix(){
