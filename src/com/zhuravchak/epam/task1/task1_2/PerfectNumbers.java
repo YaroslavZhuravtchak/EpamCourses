@@ -1,7 +1,9 @@
 /**
  * Created by Yaroslav on 22-Jul-17.
  */
+
 package com.zhuravchak.epam.task1.task1_2;
+
 import java.io.*;
 
 public class PerfectNumbers {
