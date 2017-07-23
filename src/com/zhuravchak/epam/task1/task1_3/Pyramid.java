@@ -1,8 +1,9 @@
-package com.zhuravchak.epam.task1.task1_3;
-import java.io.*;
 /**
  * Created by Yaroslav on 22-Jul-17.
  */
+package com.zhuravchak.epam.task1.task1_3;
+import java.io.*;
+
 public class Pyramid {
     private int widthOfPyramid;
 
@@ -11,19 +12,23 @@ public class Pyramid {
     }
 
     public void makePyramid(){
-       int numberOfRows= defineNumberOfRows();
-       if(numberOfRows==-1) return;
-        buildRows(numberOfRows);
+       int numberOfRows = defineNumberOfRows();
+       if(numberOfRows==-1) {
+           return;
+       }
+       buildRows(numberOfRows);
     }
 
     public int defineNumberOfRows(){
         System.out.println("Please enter the number of rows  in your pyramid(digit only):");
         try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
             int numberOfRows=Integer.valueOf(br.readLine());
-            if(numberOfRows<0)
+            if(numberOfRows<0) {
                 throw new Exception("It's not a positive number");
-            if(numberOfRows>9)
+            }
+            if(numberOfRows>9) {
                 throw new Exception("It's not a digit");
+            }
             return numberOfRows;
         }catch (IOException e){
             e.printStackTrace();
@@ -51,8 +56,9 @@ public class Pyramid {
             if(--numberOfRow>0){
                 rowOfNumbers[centerOfRow+i]=rowOfNumbers[centerOfRow-i]=(char)(numberOfRow+48);
             }
-            else
-                rowOfNumbers[centerOfRow+i]=rowOfNumbers[centerOfRow-i]=' ';
+            else {
+                rowOfNumbers[centerOfRow + i] = rowOfNumbers[centerOfRow - i] = ' ';
+            }
         }
         System.out.println(rowOfNumbers);
     }
@@ -60,5 +66,4 @@ public class Pyramid {
     public static void main(String[] args) {
         new Pyramid();
     }
-
 }

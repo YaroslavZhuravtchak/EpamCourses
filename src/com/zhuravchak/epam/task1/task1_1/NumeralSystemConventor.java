@@ -1,12 +1,14 @@
-package com.zhuravchak.epam.task1.task1_1;
-import java.io.*;
 /**
  * Created by Yaroslav on 22-Jul-17.
  */
+package com.zhuravchak.epam.task1.task1_1;
+import java.io.*;
+
 public class NumeralSystemConventor {
     public NumeralSystemConventor(){
         defineDecimalNumber();
     }
+
     public void defineDecimalNumber(){
         System.out.println("Please enter positive decimal integer number:");
         try(BufferedReader br = new BufferedReader(new InputStreamReader(System.in))){
@@ -22,6 +24,7 @@ public class NumeralSystemConventor {
             System.out.println("It's not a integer number");
         }
     }
+
     public void convertDecimalNumber(int decimalNumber){
         System.out.println("Your number in the binary numeral system:");
         System.out.println(Integer.toBinaryString(decimalNumber));
@@ -30,7 +33,8 @@ public class NumeralSystemConventor {
         System.out.println("Your number in the hexadecimal numeral system:");
         System.out.println(Integer.toHexString(decimalNumber));
     }
+
     public static void main(String[] args) {
          new NumeralSystemConventor();
     }
-    }
+}
