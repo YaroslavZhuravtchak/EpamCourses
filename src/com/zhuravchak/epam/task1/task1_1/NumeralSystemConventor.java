@@ -14,7 +14,7 @@ public class NumeralSystemConventor {
     public void defineDecimalNumber(){
         System.out.println("Please enter positive decimal integer number:");
         try  {
-            int digit=0;
+            int digit;
             String str = "";
             while(true){
                 digit = System.in.read();
