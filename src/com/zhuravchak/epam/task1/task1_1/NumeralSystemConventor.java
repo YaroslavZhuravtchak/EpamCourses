@@ -18,7 +18,9 @@ public class NumeralSystemConventor {
             String str = "";
             while(true){
                 digit = System.in.read();
-                if(digit == (int)'\n') break;
+                if (digit == (int) ('\n')) {
+                    break;
+                }
                 str += (char)digit;
             }
             int number = Integer.parseInt(str);
