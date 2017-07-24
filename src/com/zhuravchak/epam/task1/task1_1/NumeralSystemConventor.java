@@ -23,7 +23,7 @@ public class NumeralSystemConventor {
                 }
                 str += (char)digit;
             }
-            int number = Integer.parseInt(str);
+            long number = Long.parseLong(str);
             if (number < 0) {
                 System.out.println("It's not a positive number");
                 return;
@@ -36,13 +36,13 @@ public class NumeralSystemConventor {
          }
     }
 
-    public void convertDecimalNumber(int decimalNumber){
+    public void convertDecimalNumber(long decimalNumber){
         System.out.println("Your number in the binary numeral system:");
-        System.out.println(Integer.toBinaryString(decimalNumber));
+        System.out.println(Long.toBinaryString(decimalNumber));
         System.out.println("Your number in the octal numeral system:");
-        System.out.println(Integer.toOctalString(decimalNumber));
+        System.out.println(Long.toOctalString(decimalNumber));
         System.out.println("Your number in the hexadecimal numeral system:");
-        System.out.println(Integer.toHexString(decimalNumber));
+        System.out.println(Long.toHexString(decimalNumber));
     }
 
     public static void main(String[] args) {
