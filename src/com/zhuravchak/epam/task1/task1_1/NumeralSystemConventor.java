@@ -13,8 +13,15 @@ public class NumeralSystemConventor {
 
     public void defineDecimalNumber(){
         System.out.println("Please enter positive decimal integer number:");
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            int number = Integer.valueOf(br.readLine());
+        try  {
+            int digit=0;
+            String str = "";
+            while(true){
+                digit = System.in.read();
+                if(digit == (int)'\n') break;
+                str += (char)digit;
+            }
+            int number = Integer.parseInt(str);
             if (number < 0) {
                 System.out.println("It's not a positive number");
                 return;
@@ -23,8 +30,8 @@ public class NumeralSystemConventor {
         } catch (IOException e) {
             e.printStackTrace();
         } catch (NumberFormatException e) {
-            System.out.println("It's not a integer number");
-        }
+           System.out.println("It's not a integer number");
+         }
     }
 
     public void convertDecimalNumber(int decimalNumber){
