@@ -18,31 +18,30 @@ public class Train {
              int numberOfReservedSeats, int numberOfCoupeSeats, int numberOfSVSeats){
 
         this.finalDestination = finalDestination;
-        this.timeOfLeaving=timeOfLeaving;
-        timeInMinute=getTimeInMinute(timeOfLeaving);
-        this.ID=ID;
-        this.numberOfGeneralSeats=numberOfGeneralSeats;
-        this.numberOfReservedSeats=numberOfReservedSeats;
-        this.numberOfCoupeSeats=numberOfCoupeSeats;
+        this.timeOfLeaving = timeOfLeaving;
+        timeInMinute = getTimeInMinute(timeOfLeaving);
+        this.ID = ID;
+        this.numberOfGeneralSeats = numberOfGeneralSeats;
+        this.numberOfReservedSeats = numberOfReservedSeats;
+        this.numberOfCoupeSeats = numberOfCoupeSeats;
         this.numberOfSVSeats = numberOfSVSeats;
     }
 
    public static int getTimeInMinute(String timeOfLeaving){
+       String[] time = timeOfLeaving.split(":");
 
-       String[] time= timeOfLeaving.split(":");
-
-       if(time.length != 2){
+       if (time.length != 2) {
            throw new NumberFormatException();
        }
 
-       int hours =Integer.valueOf(time[0]);
-       int minutes=Integer.valueOf(time[1]);
+       int hours = Integer.valueOf(time[0]);
+       int minutes = Integer.valueOf(time[1]);
 
-       if(hours<0||hours>23||minutes<0||minutes>59){
+       if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
            throw new NumberFormatException();
        }
 
-        return Integer.valueOf(time[0])*60+Integer.valueOf(time[1]);
+        return hours * 60 + minutes;
    }
 
     public String toString(){

@@ -15,8 +15,8 @@ public class TrainTable {
 
     public void showListOvTrainWithGeneralSeats(){
 
-       for(int i=0; i<trains.length;i++){
-           if(trains[i].getNumberOfGeneralSeats()>0){
+       for (int i=0; i < trains.length; i++) {
+           if (trains[i].getNumberOfGeneralSeats()>0) {
                System.out.println(trains[i]);
            }
        }
@@ -24,23 +24,23 @@ public class TrainTable {
 
     public void arrangeTrains(){
         Arrays.sort(trains, new TrainIDComparator());
-        for(int i=0; i<trains.length;i++){
+        for (int i = 0; i < trains.length; i++){
                 System.out.println(trains[i]);
             }
     }
 
     public void findTrains(String sity, String time){
-        int counter=0;
+        int counter = 0;
         System.out.println();
 
-        for(int i =0; i<trains.length;i++){
+        for (int i = 0; i < trains.length; i++) {
             int timeLine = Train.getTimeInMinute(time);
-            if(sity.equals(trains[i].getFinalDestination())&&trains[i].getTimeInMinute()>=timeLine){
+            if (sity.equals(trains[i].getFinalDestination()) && (trains[i].getTimeInMinute() >= timeLine)) {
                 counter++;
                 System.out.println(trains[i]);
             }
         }
-        if(counter==0){
+        if(counter == 0){
             System.out.println("Нажаль поїздів з даними параметрами немає\n");
         }
     }

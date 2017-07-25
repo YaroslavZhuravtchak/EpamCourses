@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class TrainGenerator {
 
-    private static Train[] trains= new Train[8];
+    private static Train[] trains = new Train[8];
     private static String[] finalDestinations = new String[] {"Харків", "Одеса", "Ужгород", "Чернівці", "Миколаїв",
                                                         "Івано-Франківськ", "Вінниця", "Чернігів", "Полтава", "Херсон"};
     private static String[] timesOfLeaving = new String[]{"12:30", "14:15", "23:00", "10:20",  "17:35", "18:45",
@@ -21,8 +21,8 @@ public class TrainGenerator {
 
         Random random = new Random();
 
-        for(int i =0; i<8; i++){
-            trains[i]= new Train( finalDestinations[random.nextInt(10)],
+        for(int i = 0; i < 8; i++){
+            trains[i] = new Train( finalDestinations[random.nextInt(10)],
                                     timesOfLeaving[random.nextInt(11)],
                                     random.nextInt(99),
                                     numbersOfGeneralSeats[random.nextInt(10)],
