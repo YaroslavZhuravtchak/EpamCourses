@@ -7,7 +7,7 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static String getSrtingFromConsole(){
+    public static String getSrtingfromConsole(){
         Scanner in = new Scanner(System.in);
         String str = in.next();
         return str;
@@ -29,7 +29,7 @@ public class Main {
 
         while (true) {
             showMenu();
-            String ch = getSrtingFromConsole();
+            String ch = getSrtingfromConsole();
             if (ch.equals( "L")) {
                 trainTable.arrangeTrains();
             } else if (ch.equals("S")) {
@@ -37,11 +37,11 @@ public class Main {
             } else if (ch.equals("F")) {
                 try {
                     System.out.println("Введіть місто:");
-                    String sity = getSrtingFromConsole();
+                    String sity = getSrtingfromConsole();
 
                     System.out.println("Введіть час відправлення в форматі гг:xx :");
 
-                    String time = getSrtingFromConsole();
+                    String time = getSrtingfromConsole();
                     trainTable.findTrains(sity, time);
                 } catch (NumberFormatException e) {
                     System.out.println("Невірний формат часу");

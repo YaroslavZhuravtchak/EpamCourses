@@ -7,15 +7,14 @@ import java.io.*;
  */
 public class NumeralSystemConventor {
 
-    public NumeralSystemConventor(){
-        defineDecimalNumber();
-    }
+    private long number;
 
-    public void defineDecimalNumber(){
+    public void enterNumber() throws NumberFormatException{
         System.out.println("Please enter positive decimal integer number:");
         try  {
             int digit;
             String str = "";
+
             while(true){
                 digit = System.in.read();
                 if (digit == (int) ('\n')) {
@@ -23,29 +22,85 @@ public class NumeralSystemConventor {
                 }
                 str += (char)digit;
             }
-            long number = Long.parseLong(str);
+
+            number = Long.parseLong(str);
+
             if (number < 0) {
-                System.out.println("It's not a positive number");
-                return;
+                throw new NumberFormatException();
             }
-            convertDecimalNumber(number);
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (NumberFormatException e) {
-           System.out.println("It's not a integer number");
-         }
+        }
     }
 
-    public void convertDecimalNumber(long decimalNumber){
+    public void showConvertedNumbers(){
         System.out.println("Your number in the binary numeral system:");
-        System.out.println(Long.toBinaryString(decimalNumber));
+        System.out.println(convert(number, 2));
         System.out.println("Your number in the octal numeral system:");
-        System.out.println(Long.toOctalString(decimalNumber));
+        System.out.println(convert(number, 8));
         System.out.println("Your number in the hexadecimal numeral system:");
-        System.out.println(Long.toHexString(decimalNumber));
+        System.out.println(convert(number, 16));
+    }
+
+    public String convert(long number, int base){
+        StringBuilder bin = new StringBuilder();
+
+        while(number>=base){
+            bin.append(getDigit((int)number%base));
+            number /= base;
+        }
+        bin.append(getDigit((int)number));
+        return bin.reverse().toString();
+    }
+
+    public char getDigit(int number) throws NumberFormatException{
+        char digit;
+
+        switch (number) {
+        case 0:
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+        case 6:
+        case 7:
+        case 8:
+        case 9:
+          digit=(char)(number+48);
+          break;
+        case 10:
+          digit='a';
+          break;
+        case 11:
+          digit='b';
+          break;
+        case 12:
+          digit='c';
+          break;
+        case 13:
+          digit='d';
+          break;
+        case 14:
+          digit='e';
+          break;
+        case 15:
+          digit='f';
+          break;
+        default:
+          throw new NumberFormatException();
+        }
+        return digit;
     }
 
     public static void main(String[] args) {
-         new NumeralSystemConventor();
+         NumeralSystemConventor conventor = new NumeralSystemConventor();
+         try {
+             conventor.enterNumber();
+             conventor.showConvertedNumbers();
+         } catch (NumberFormatException e){
+             System.out.println("It's not a positive integer number");
+         }
+
     }
 }

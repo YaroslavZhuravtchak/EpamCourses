@@ -31,21 +31,21 @@ public class PerfectNumbers {
         int perfectNumber;
         System.out.println("Perfect numbers:");
         for (int i = 1; i <= numberOfPerfectNumbers; i++) {
-            perfectNumber = findPerfectNumber(i);
+            perfectNumber = findSumOfDividers(i);
             if (perfectNumber == i) {
                 System.out.print(perfectNumber + " ");
             }
         }
     }
 
-    public int findPerfectNumber(int number){
-        int perfectNumber = 0;
+    public int findSumOfDividers(int number){
+        int sum = 0;
         for (int i = 1; i < number; i++) {
             if (number % i == 0) {
-                perfectNumber += i;
+                sum += i;
             }
         }
-        return perfectNumber;
+        return sum;
     }
 
     public static void main(String[] args) {
