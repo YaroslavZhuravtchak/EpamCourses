@@ -35,7 +35,7 @@ public class TrainTable {
 
         for (int i = 0; i < trains.length; i++) {
             int timeLine = Train.getTimeInMinute(time);
-            if (sity.equals(trains[i].getFinalDestination()) && (trains[i].getTimeInMinute() >= timeLine)) {
+            if (sity.equalsIgnoreCase(trains[i].getFinalDestination()) && (trains[i].getTimeInMinute() >= timeLine)) {
                 counter++;
                 System.out.println(trains[i]);
             }
