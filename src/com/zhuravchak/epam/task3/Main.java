@@ -21,11 +21,6 @@ public class Main {
                 " F  для пошуку поїзда по місту і часу відправлення.\n" +
                 " E  для виходу\n"+
                 "________________________________________________________\n");
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
     }
     public static void main(String[] args) throws IOException {
         TrainTable trainTable = new TrainTable();
