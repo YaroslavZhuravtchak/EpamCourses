@@ -1,6 +1,5 @@
 package com.zhuravchak.epam.task3;
 
-import java.io.IOException;
 import java.util.Scanner;
 
 /**
@@ -8,26 +7,29 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static String getSrtingfromConsole(){
+    public static String getSrtingFromConsole(){
         Scanner in = new Scanner(System.in);
-        String sity = in.next();
-        return sity;
+        String str = in.next();
+        return str;
     }
+
     public static void showMenu(){
         System.out.println("________________________________________________________\n"+
                 "Введіть:\n" +
-                " L  для виводу всіх поїздів;\n" +
-                " S  для виводу поїздів в яких є вільні загальні місця;\n" +
-                " F  для пошуку поїзда по місту і часу відправлення.\n" +
+                " L  для виводу всіх поїздів\n" +
+                " S  для виводу поїздів в яких є вільні загальні місц\n" +
+                " F  для пошуку поїзда по місту і часу відправлення\n" +
                 " E  для виходу\n"+
                 "________________________________________________________\n");
     }
-    public static void main(String[] args) throws IOException {
+
+    public static void main(String[] args) {
+
         TrainTable trainTable = new TrainTable();
 
         while (true) {
             showMenu();
-            String ch = getSrtingfromConsole();
+            String ch = getSrtingFromConsole();
             if (ch.equals( "L")) {
                 trainTable.arrangeTrains();
             } else if (ch.equals("S")) {
@@ -35,11 +37,11 @@ public class Main {
             } else if (ch.equals("F")) {
                 try {
                     System.out.println("Введіть місто:");
-                    String sity = getSrtingfromConsole();
+                    String sity = getSrtingFromConsole();
 
                     System.out.println("Введіть час відправлення в форматі гг:xx :");
 
-                    String time = getSrtingfromConsole();
+                    String time = getSrtingFromConsole();
                     trainTable.findTrains(sity, time);
                 } catch (NumberFormatException e) {
                     System.out.println("Невірний формат часу");

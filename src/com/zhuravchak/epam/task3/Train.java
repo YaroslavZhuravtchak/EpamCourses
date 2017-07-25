@@ -28,42 +28,22 @@ public class Train {
     }
 
    public static int getTimeInMinute(String timeOfLeaving){
+
        String[] time= timeOfLeaving.split(":");
+
+       if(time.length != 2){
+           throw new NumberFormatException();
+       }
+
+       int hours =Integer.valueOf(time[0]);
+       int minutes=Integer.valueOf(time[1]);
+
+       if(hours<0||hours>23||minutes<0||minutes>59){
+           throw new NumberFormatException();
+       }
 
         return Integer.valueOf(time[0])*60+Integer.valueOf(time[1]);
    }
-
-    public String getFinalDestination() {
-        return finalDestination;
-    }
-
-    public int getTimeInMinute() {
-        return timeInMinute;
-    }
-
-    public String getTimeOfLeaving() {
-        return timeOfLeaving;
-    }
-
-    public int getID() {
-        return ID;
-    }
-
-    public int getNumberOfGeneralSeats() {
-        return numberOfGeneralSeats;
-    }
-
-    public int getNumberOfReservedSeats() {
-        return numberOfReservedSeats;
-    }
-
-    public int getNumberOfCoupeSeats() {
-        return numberOfCoupeSeats;
-    }
-
-    public int getNumberOfSVSeats() {
-        return numberOfSVSeats;
-    }
 
     public String toString(){
         return  "Номер поїзда:                 " + ID + "\n" +
@@ -73,5 +53,21 @@ public class Train {
                 "Кількість плацкартних місць:  " + numberOfReservedSeats + "\n" +
                 "Кількість купейних місць:     " + numberOfCoupeSeats + "\n" +
                 "Кількість СВ місць:           " + numberOfSVSeats + "\n\n" ;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public String getFinalDestination() {
+        return finalDestination;
+    }
+
+    public int getTimeInMinute() {
+        return timeInMinute;
+    }
+
+    public int getNumberOfGeneralSeats() {
+        return numberOfGeneralSeats;
     }
 }
