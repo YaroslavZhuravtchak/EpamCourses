@@ -43,14 +43,14 @@ public class NumeralSystemConventor {
     }
 
     public String convert(long number, int base){
-        StringBuilder bin = new StringBuilder();
+        StringBuilder newNumber = new StringBuilder();
 
         while(number>=base){
-            bin.append(getDigit((int)number%base));
+            newNumber.append(getDigit((int)number%base));
             number /= base;
         }
-        bin.append(getDigit((int)number));
-        return bin.reverse().toString();
+        newNumber.append(getDigit((int)number));
+        return newNumber.reverse().toString();
     }
 
     public char getDigit(int number) throws NumberFormatException{
@@ -98,8 +98,8 @@ public class NumeralSystemConventor {
          try {
              conventor.enterNumber();
              conventor.showConvertedNumbers();
-         } catch (NumberFormatException e){
-             System.out.println("It's not a positive integer number");
+         } catch (NumberFormatException e) {
+
          }
 
     }

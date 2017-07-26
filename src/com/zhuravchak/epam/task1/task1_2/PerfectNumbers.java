@@ -7,34 +7,43 @@ import java.io.*;
  */
 public class PerfectNumbers {
 
-    public PerfectNumbers(){
-        defineNumber();
+    private int diapason;
+
+    public PerfectNumbers() {
+         defineDiapason();
     }
 
-    public void defineNumber(){
+    public void defineDiapason() {
         System.out.println("Please enter the number of perfect numbers to output(from 1):");
+
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            int numberOfPerfectNumbers = Integer.valueOf(br.readLine());
-            if (numberOfPerfectNumbers < 0) {
-                System.out.println("It's not a positive number");
-                return;
+            diapason = Integer.valueOf(br.readLine());
+
+            if (diapason < 0) {
+               throw new NumberFormatException();
             }
-            findAllPerfectNumbers(numberOfPerfectNumbers);
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (NumberFormatException e) {
-            System.out.println("It's not a integer number");
         }
     }
 
-    public void findAllPerfectNumbers(int numberOfPerfectNumbers){
+    public void findPerfectNumbers(){
+
         int perfectNumber;
-        System.out.println("Perfect numbers:");
-        for (int i = 1; i <= numberOfPerfectNumbers; i++) {
+        int counter = 0;
+
+        for (int i = 1; i <= diapason; i++) {
             perfectNumber = findSumOfDividers(i);
             if (perfectNumber == i) {
+                if (counter == 0) {
+                    System.out.println("Perfect numbers:");
+                }
                 System.out.print(perfectNumber + " ");
+                counter++;
             }
+        }
+        if (counter ==0 ) {
+            System.out.println("There's no perfect numbers");
         }
     }
 
@@ -49,6 +58,11 @@ public class PerfectNumbers {
     }
 
     public static void main(String[] args) {
-        new PerfectNumbers();
+        try {
+            PerfectNumbers perfectNumbers = new PerfectNumbers();
+            perfectNumbers.findPerfectNumbers();
+        } catch (NumberFormatException e){
+            System.out.println("It's not a positive integer number");
+        }
     }
 }

@@ -1,16 +1,16 @@
-package com.zhuravchak.epam.task3;
+package com.zhuravchak.epam.task3.trains.menu;
 
+
+import com.zhuravchak.epam.task3.trains.schedule.TrainTable;
 import java.util.Scanner;
 
 /**
- * Created by Yaroslav on 24-Jul-17.
+ * Created by Yaroslav on 26-Jul-17.
  */
-public class Main {
-
-    public static String getSrtingfromConsole(){
-        Scanner in = new Scanner(System.in);
-        String str = in.next();
-        return str;
+public class Menu {
+    TrainTable table;
+    public Menu(TrainTable table) {
+        this.table = table;
     }
 
     public static void showMenu(){
@@ -23,26 +23,29 @@ public class Main {
                 "________________________________________________________\n");
     }
 
-    public static void main(String[] args) {
+    public  String getSrtingFromConsole(){
+        Scanner in = new Scanner(System.in);
+        String str = in.next();
+        return str;
+    }
 
-        TrainTable trainTable = new TrainTable();
-
+    public  void runMenu(){
         while (true) {
             showMenu();
-            String ch = getSrtingfromConsole();
+            String ch = getSrtingFromConsole();
             if (ch.equals( "L")) {
-                trainTable.arrangeTrains();
+                table.arrangeTrains();
             } else if (ch.equals("S")) {
-                trainTable.showListOvTrainWithGeneralSeats();
+                table.showListOvTrainWithGeneralSeats();
             } else if (ch.equals("F")) {
                 try {
                     System.out.println("Введіть місто:");
-                    String sity = getSrtingfromConsole();
+                    String sity = getSrtingFromConsole();
 
                     System.out.println("Введіть час відправлення в форматі гг:xx :");
 
-                    String time = getSrtingfromConsole();
-                    trainTable.findTrains(sity, time);
+                    String time = getSrtingFromConsole();
+                    table.findTrains(sity, time);
                 } catch (NumberFormatException e) {
                     System.out.println("Невірний формат часу");
                 }
@@ -51,4 +54,5 @@ public class Main {
             }
         }
     }
+
 }

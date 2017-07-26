@@ -7,22 +7,12 @@ import java.util.*;
  */
 public class Matrix {
 
-    private  int size;
-    float[][] matrix;
+    private int size;
+    private float[][] matrix;
 
-    public Matrix(int size) {
-        this.size = size;
-        generateMatrix();
-    }
-
-    public void generateMatrix(){
-        matrix = new float[size][size];
-        Random random = new Random();
-        for(int i = 0; i < size; i++) {
-            for (int j = 0; j < size; j++) {
-                matrix[i][j] = random.nextFloat() + random.nextInt(100) - 50;
-            }
-        }
+    public Matrix(float[][] matrix) {
+       this.matrix=matrix;
+       this.size=matrix.length;
     }
 
     public void showMatrix() {
@@ -50,16 +40,5 @@ public class Matrix {
         }
     }
 
-    public static void main(String[] args) {
 
-        Matrix matrixTurner = new Matrix(6);
-
-        System.out.println("\nOrigin matrix:");
-        matrixTurner.showMatrix();
-
-        matrixTurner.turnMatrix();
-
-        System.out.println("\nTurned matrix:");
-        matrixTurner.showMatrix();
-    }
 }

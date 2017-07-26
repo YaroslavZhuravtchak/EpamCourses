@@ -8,42 +8,30 @@ import java.io.*;
 public class Pyramid {
 
     private int widthOfPyramid;
+    private int numberOfRows;
 
     public Pyramid(){
-        makePyramid();
+        defineNumberOfRows();
+        widthOfPyramid = numberOfRows * 2 - 1;
     }
 
-    public void makePyramid(){
-       int numberOfRows = defineNumberOfRows();
-       if (numberOfRows == -1) {
-           return;
-       }
-       buildRows(numberOfRows);
-    }
 
-    public int defineNumberOfRows(){
+    public void defineNumberOfRows(){
         System.out.println("Please enter the number of rows in your pyramid(digit only):");
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            int numberOfRows = Integer.valueOf(br.readLine());
+            numberOfRows = Integer.valueOf(br.readLine());
             if (numberOfRows < 0) {
-                throw new Exception("It's not a positive number");
+                throw new NumberFormatException();
             }
             if (numberOfRows > 9) {
-                throw new Exception("It's not a digit");
+                throw new NumberFormatException();
             }
-            return numberOfRows;
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (NumberFormatException e) {
-            System.out.println("It's not a integer number");
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
-        return -1;
     }
 
-    public void buildRows(int numberOfRows){
-        widthOfPyramid = numberOfRows * 2 - 1;
+    public void buildPyramid(){
         System.out.println("\nYour pyramid:\n");
         for (int row = 1; row <= numberOfRows; row++) {
             buildRow(row);
@@ -67,6 +55,11 @@ public class Pyramid {
     }
 
     public static void main(String[] args) {
-        new Pyramid();
+        try {
+            Pyramid pyramid = new Pyramid();
+            pyramid.buildPyramid();
+        } catch (NumberFormatException e) {
+            System.out.println("It's not a digit");
+        }
     }
 }

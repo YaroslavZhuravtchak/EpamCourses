@@ -1,5 +1,6 @@
-package com.zhuravchak.epam.task3;
+package com.zhuravchak.epam.task3.trains.generator;
 
+import com.zhuravchak.epam.task3.trains.train.Train;
 import java.util.Random;
 
 /**

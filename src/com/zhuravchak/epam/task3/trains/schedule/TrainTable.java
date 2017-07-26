@@ -1,4 +1,8 @@
-package com.zhuravchak.epam.task3;
+package com.zhuravchak.epam.task3.trains.schedule;
+
+import com.zhuravchak.epam.task3.trains.comparator.TrainIDComparator;
+import com.zhuravchak.epam.task3.trains.generator.TrainGenerator;
+import com.zhuravchak.epam.task3.trains.train.Train;
 
 import java.util.Arrays;
 

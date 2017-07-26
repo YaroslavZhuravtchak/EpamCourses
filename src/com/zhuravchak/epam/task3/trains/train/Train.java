@@ -1,4 +1,4 @@
-package com.zhuravchak.epam.task3;
+package com.zhuravchak.epam.task3.trains.train;
 
 /**
  * Created by Yaroslav on 24-Jul-17.
