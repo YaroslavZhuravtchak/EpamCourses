@@ -17,7 +17,9 @@ public class Pyramid {
 
 
     public void defineNumberOfRows(){
+
         System.out.println("Please enter the number of rows in your pyramid(digit only):");
+
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             numberOfRows = Integer.valueOf(br.readLine());
             if (numberOfRows < 0) {
@@ -39,9 +41,11 @@ public class Pyramid {
     }
 
     public void buildRow(int numberOfRow){
+
         char[] rowOfNumbers = new char[widthOfPyramid];
         int centerOfRow = widthOfPyramid / 2;
         rowOfNumbers[centerOfRow] = (char)(numberOfRow + 48);
+
         for (int i = 1; i <= centerOfRow; i++) {
             if (--numberOfRow > 0) {
                 rowOfNumbers[centerOfRow + i] = (char)(numberOfRow + 48);
@@ -51,6 +55,7 @@ public class Pyramid {
                 rowOfNumbers[centerOfRow + i] = rowOfNumbers[centerOfRow - i] = ' ';
             }
         }
+
         System.out.println(rowOfNumbers);
     }
 
