@@ -1,4 +1,4 @@
-package com.zhuravchak.epam.task2;
+package com.zhuravchak.epam.task1.matrix;
 
 import java.util.*;
 

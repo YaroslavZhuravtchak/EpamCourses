@@ -1,4 +1,4 @@
-package com.zhuravchak.epam.task2.generator;
+package com.zhuravchak.epam.task1.matrix.generator;
 
 import java.util.Random;
 

@@ -1,6 +1,6 @@
-package com.zhuravchak.epam.task2;
+package com.zhuravchak.epam.task1.matrix;
 
-import com.zhuravchak.epam.task2.generator.MatrixGenerator;
+import com.zhuravchak.epam.task1.matrix.generator.MatrixGenerator;
 
 /**
  * Created by Yaroslav on 26-Jul-17.

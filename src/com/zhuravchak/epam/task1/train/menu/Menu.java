@@ -1,6 +1,7 @@
-package com.zhuravchak.epam.task3.trains.menu;
+package com.zhuravchak.epam.task1.train.menu;
 
-import com.zhuravchak.epam.task3.trains.module.*;
+import com.zhuravchak.epam.task1.train.module.Train;
+import com.zhuravchak.epam.task1.train.module.TrainTable;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -17,9 +18,8 @@ public class Menu {
     public static void showMenu(){
         System.out.println("________________________________________________________\n"+
                 "Введіть:\n" +
-                " I  для виводу всіх поїздів відсортованих за ID\n" +
-                " T  для виводу всіх поїздів відсортованих за часом\n" +
-                " G  для виводу поїздів в яких є вільні загальні місця\n" +
+                " L  для виводу всіх поїздів\n" +
+                " S  для виводу поїздів в яких є вільні загальні місц\n" +
                 " F  для пошуку поїзда по місту і часу відправлення\n" +
                 " E  для виходу\n"+
                 "________________________________________________________\n");
@@ -35,13 +35,10 @@ public class Menu {
         while (true) {
             showMenu();
             String ch = getSrtingFromConsole();
-            if (ch.equals( "I")) {
+            if (ch.equals( "L")) {
                 table.arrangeTrainsByID();
                 table.showAllTrains();
-            }else if (ch.equals("T")) {
-                table.arrangeTrainsByTime();
-                table.showAllTrains();
-            } else if (ch.equals("G")) {
+            } else if (ch.equals("S")) {
                 System.out.println(table.showListOvTrainWithGeneralSeats());
             } else if (ch.equals("F")) {
                 try {
@@ -53,10 +50,11 @@ public class Menu {
                     String time = getSrtingFromConsole();
                     ArrayList<Train> trains = table.findTrains(sity, time);
                     if(trains.size()==0){
-                        System.out.println("\nПоїздів не знайдено");
+                        System.out.println("G");
                     } else {
-                        System.out.println("\n" + trains);
+                        System.out.println(trains);
                     }
+
                 } catch (NumberFormatException e) {
                     System.out.println("Невірний формат часу");
                 }

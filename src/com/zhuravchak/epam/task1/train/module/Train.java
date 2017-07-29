@@ -1,4 +1,6 @@
-package com.zhuravchak.epam.task3.trains.train;
+package com.zhuravchak.epam.task1.train.module;
+
+import com.zhuravchak.epam.task1.train.time.TimeConventor;
 
 /**
  * Created by Yaroslav on 24-Jul-17.
@@ -6,7 +8,7 @@ package com.zhuravchak.epam.task3.trains.train;
 public class Train {
 
     private String finalDestination;
-    private int timeInMinute;
+   // private int timeInMinute;
     private String timeOfLeaving;
     private int ID;
     private int numberOfGeneralSeats;
@@ -19,30 +21,13 @@ public class Train {
 
         this.finalDestination = finalDestination;
         this.timeOfLeaving = timeOfLeaving;
-        timeInMinute = getTimeInMinute(timeOfLeaving);
+       // timeInMinute = TimeConventor.toMinute(timeOfLeaving);
         this.ID = ID;
         this.numberOfGeneralSeats = numberOfGeneralSeats;
         this.numberOfReservedSeats = numberOfReservedSeats;
         this.numberOfCoupeSeats = numberOfCoupeSeats;
         this.numberOfSVSeats = numberOfSVSeats;
     }
-
-   public static int getTimeInMinute(String timeOfLeaving){
-       String[] time = timeOfLeaving.split(":");
-
-       if (time.length != 2) {
-           throw new NumberFormatException();
-       }
-
-       int hours = Integer.valueOf(time[0]);
-       int minutes = Integer.valueOf(time[1]);
-
-       if (hours < 0 || hours > 23 || minutes < 0 || minutes > 59) {
-           throw new NumberFormatException();
-       }
-
-        return hours * 60 + minutes;
-   }
 
     public String toString(){
         return  "Номер поїзда:                 " + ID + "\n" +
@@ -62,11 +47,15 @@ public class Train {
         return finalDestination;
     }
 
-    public int getTimeInMinute() {
-        return timeInMinute;
-    }
+   // public int getTimeInMinute() {
+    //    return timeInMinute;
+   // }
 
     public int getNumberOfGeneralSeats() {
         return numberOfGeneralSeats;
+    }
+
+    public String getTimeOfLeaving() {
+        return timeOfLeaving;
     }
 }

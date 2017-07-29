@@ -1,6 +1,7 @@
-package com.zhuravchak.epam.task3.trains.comparator;
+package com.zhuravchak.epam.task1.train.comparator;
 
-import com.zhuravchak.epam.task3.trains.train.Train;
+import com.zhuravchak.epam.task1.train.module.Train;
+
 import java.util.Comparator;
 
 /**

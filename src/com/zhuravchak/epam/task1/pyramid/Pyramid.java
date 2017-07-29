@@ -1,4 +1,4 @@
-package com.zhuravchak.epam.task1.task1_3;
+package com.zhuravchak.epam.task1.pyramid;
 
 import java.io.*;
 
@@ -10,24 +10,19 @@ public class Pyramid {
     private int widthOfPyramid;
     private int numberOfRows;
 
-    public Pyramid(){
-        defineNumberOfRows();
-        widthOfPyramid = numberOfRows * 2 - 1;
-    }
-
-
-    public void defineNumberOfRows(){
+    public void inputSizeOfPyramid(){
 
         System.out.println("Please enter the number of rows in your pyramid(digit only):");
 
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             numberOfRows = Integer.valueOf(br.readLine());
             if (numberOfRows < 0) {
-                throw new NumberFormatException();
+                throw new NumberFormatException("Not a positive number");
             }
             if (numberOfRows > 9) {
-                throw new NumberFormatException();
+                throw new NumberFormatException("Not a digit");
             }
+            widthOfPyramid = numberOfRows * 2 - 1;
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -55,16 +50,6 @@ public class Pyramid {
                 rowOfNumbers[centerOfRow + i] = rowOfNumbers[centerOfRow - i] = ' ';
             }
         }
-
         System.out.println(rowOfNumbers);
-    }
-
-    public static void main(String[] args) {
-        try {
-            Pyramid pyramid = new Pyramid();
-            pyramid.buildPyramid();
-        } catch (NumberFormatException e) {
-            System.out.println("It's not a digit");
-        }
     }
 }
