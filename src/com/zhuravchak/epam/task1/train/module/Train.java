@@ -8,7 +8,6 @@ import com.zhuravchak.epam.task1.train.time.TimeConventor;
 public class Train {
 
     private String finalDestination;
-   // private int timeInMinute;
     private String timeOfLeaving;
     private int ID;
     private int numberOfGeneralSeats;
@@ -21,7 +20,6 @@ public class Train {
 
         this.finalDestination = finalDestination;
         this.timeOfLeaving = timeOfLeaving;
-       // timeInMinute = TimeConventor.toMinute(timeOfLeaving);
         this.ID = ID;
         this.numberOfGeneralSeats = numberOfGeneralSeats;
         this.numberOfReservedSeats = numberOfReservedSeats;
@@ -46,10 +44,6 @@ public class Train {
     public String getFinalDestination() {
         return finalDestination;
     }
-
-   // public int getTimeInMinute() {
-    //    return timeInMinute;
-   // }
 
     public int getNumberOfGeneralSeats() {
         return numberOfGeneralSeats;

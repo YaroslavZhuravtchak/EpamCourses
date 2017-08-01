@@ -3,7 +3,9 @@ package com.zhuravchak.epam.task1.train.menu;
 import com.zhuravchak.epam.task1.train.module.Train;
 import com.zhuravchak.epam.task1.train.module.TrainTable;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -32,33 +34,42 @@ public class Menu {
     }
 
     public  void runMenu(){
+
         while (true) {
             showMenu();
             String ch = getSrtingFromConsole();
-            if (ch.equals( "L")) {
+
+            if (ch.equalsIgnoreCase( "L")) {
+
                 table.arrangeTrainsByID();
-                table.showAllTrains();
-            } else if (ch.equals("S")) {
-                System.out.println(table.showListOvTrainWithGeneralSeats());
-            } else if (ch.equals("F")) {
+                System.out.println(Arrays.toString(table.getTrains()));
+
+            } else if (ch.equalsIgnoreCase("S")) {
+
+                System.out.println(table.findTrainsWithGeneralSeats());
+
+            } else if (ch.equalsIgnoreCase("F")) {
+
                 try {
                     System.out.println("Введіть місто:");
                     String sity = getSrtingFromConsole();
 
                     System.out.println("Введіть час відправлення в форматі гг:xx :");
-
                     String time = getSrtingFromConsole();
-                    ArrayList<Train> trains = table.findTrains(sity, time);
+
+                    ArrayList<Train> trains = table.findTrainsByCityAndTime(sity, time);
+
                     if(trains.size()==0){
-                        System.out.println("G");
+                        System.out.println("Поїздів не знайдено");
                     } else {
-                        System.out.println(trains);
+                        System.out.println("\n"+trains);
                     }
 
                 } catch (NumberFormatException e) {
                     System.out.println("Невірний формат часу");
                 }
-            } else if (ch.equals("E")) {
+
+            } else if (ch.equalsIgnoreCase("E")) {
                 break;
             }
         }

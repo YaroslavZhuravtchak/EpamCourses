@@ -1,4 +1,4 @@
-package com.zhuravchak.epam.task3.text;
+package com.zhuravchak.epam.task2.text.finder;
 
 /**
  * Created by Yaroslav on 28-Jul-17.

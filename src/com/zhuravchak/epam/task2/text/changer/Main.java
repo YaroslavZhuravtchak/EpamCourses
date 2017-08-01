@@ -1,4 +1,4 @@
-package com.zhuravchak.epam.task2.text;
+package com.zhuravchak.epam.task2.text.changer;
 
 /**
  * Created by Yaroslav on 26-Jul-17.

@@ -6,7 +6,6 @@ package com.zhuravchak.epam.task3.trains.module;
 public class Train {
 
     private String finalDestination;
-   // private int timeInMinute;
     private String timeOfLeaving;
     private int ID;
     private int numberOfGeneralSeats;
@@ -15,11 +14,10 @@ public class Train {
     private int numberOfSVSeats;
 
     public Train(String finalDestination, String timeOfLeaving, int ID, int numberOfGeneralSeats,
-             int numberOfReservedSeats, int numberOfCoupeSeats, int numberOfSVSeats){
+                 int numberOfReservedSeats, int numberOfCoupeSeats, int numberOfSVSeats){
 
         this.finalDestination = finalDestination;
         this.timeOfLeaving = timeOfLeaving;
-       // timeInMinute = TimeConventor.toMinute(timeOfLeaving);
         this.ID = ID;
         this.numberOfGeneralSeats = numberOfGeneralSeats;
         this.numberOfReservedSeats = numberOfReservedSeats;
@@ -44,10 +42,6 @@ public class Train {
     public String getFinalDestination() {
         return finalDestination;
     }
-
-   // public int getTimeInMinute() {
-    //    return timeInMinute;
-   // }
 
     public int getNumberOfGeneralSeats() {
         return numberOfGeneralSeats;

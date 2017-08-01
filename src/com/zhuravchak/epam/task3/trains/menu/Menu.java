@@ -3,6 +3,7 @@ package com.zhuravchak.epam.task3.trains.menu;
 import com.zhuravchak.epam.task3.trains.module.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 /**
@@ -37,21 +38,22 @@ public class Menu {
             String ch = getSrtingFromConsole();
             if (ch.equals( "I")) {
                 table.arrangeTrainsByID();
-                table.showAllTrains();
+                System.out.println(Arrays.toString(table.getTrains()));
             }else if (ch.equals("T")) {
                 table.arrangeTrainsByTime();
-                table.showAllTrains();
+                System.out.println(Arrays.toString(table.getTrains()));
             } else if (ch.equals("G")) {
-                System.out.println(table.showListOvTrainWithGeneralSeats());
+                System.out.println(table.findTrainsWithGeneralSeats());
             } else if (ch.equals("F")) {
                 try {
                     System.out.println("Введіть місто:");
                     String sity = getSrtingFromConsole();
 
                     System.out.println("Введіть час відправлення в форматі гг:xx :");
-
                     String time = getSrtingFromConsole();
-                    ArrayList<Train> trains = table.findTrains(sity, time);
+
+                    ArrayList<Train> trains = table.findTrainsByCityAndTime(sity, time);
+
                     if(trains.size()==0){
                         System.out.println("\nПоїздів не знайдено");
                     } else {

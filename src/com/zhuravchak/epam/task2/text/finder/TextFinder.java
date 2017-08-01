@@ -1,4 +1,4 @@
-package com.zhuravchak.epam.task3.text;
+package com.zhuravchak.epam.task2.text.finder;
 
 import java.util.Scanner;
 import java.util.regex.Matcher;
