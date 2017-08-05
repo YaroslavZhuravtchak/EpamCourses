@@ -1,15 +1,15 @@
 package com.zhuravchak.epam.task4.dictionary.menu;
 
-import java.util.*;
-
+import java.util.Scanner;
+import com.zhuravchak.epam.task4.dictionary.module.*;
 /**
  * Created by Yaroslav on 05-Aug-17.
  */
 public class Menu {
 
-    com.zhuravchak.epam.task4.dictionary.module.Dictionary dictionary;
+    Dictionary dictionary;
     Scanner scanner = new Scanner(System.in);
-    public Menu(com.zhuravchak.epam.task4.dictionary.module.Dictionary dictionary) {
+    public Menu(Dictionary dictionary) {
         this.dictionary = dictionary;
     }
 
