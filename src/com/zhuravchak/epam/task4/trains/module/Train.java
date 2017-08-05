@@ -1,11 +1,11 @@
-package com.zhuravchak.epam.task3.trains.module;
+package com.zhuravchak.epam.task4.trains.module;
 
-import java.io.Serializable;
+import java.io.*;
 
 /**
  * Created by Yaroslav on 24-Jul-17.
  */
-public class Train{
+public class Train implements Serializable {
 
     private String finalDestination;
     private String timeOfLeaving;

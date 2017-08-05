@@ -1,25 +1,22 @@
-package com.zhuravchak.epam.task3.trains.module;
+package com.zhuravchak.epam.task4.trains.module;
 
-import com.zhuravchak.epam.task3.trains.time.TimeConventor;
+import com.zhuravchak.epam.task4.trains.time.TimeConventor;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-
+import java.util.*;
 /**
  * Created by Yaroslav on 24-Jul-17.
  */
-public class TrainTable  {
+public class TrainTable implements Serializable {
 
-    private Train[] trains ;
+    ArrayList<Train> trains ;
 
-    public TrainTable(Train[] trains){
+    public TrainTable(ArrayList<Train> trains){
         this.trains = trains;
     }
 
     public void arrangeTrainsByID(){
-        Arrays.sort(trains, new Comparator<Train>(){
+        Collections.sort(trains, new Comparator<Train>(){
             @Override
             public int compare(Train t1, Train t2) {
                 if (t1.getID() > t2.getID()) {
@@ -34,7 +31,7 @@ public class TrainTable  {
     }
 
     public void arrangeTrainsByTime(){
-        Arrays.sort(trains,  new Comparator<Train>(){
+        Collections.sort(trains,  new Comparator<Train>(){
             @Override
             public int compare(Train t1, Train t2) {
                 if (TimeConventor.toMinute(t1.getTimeOfLeaving())> TimeConventor.toMinute(t2.getTimeOfLeaving())) {
@@ -49,9 +46,9 @@ public class TrainTable  {
 
     public ArrayList<Train> findTrainsWithGeneralSeats(){
         ArrayList<Train> trainsWithGeneralSeats = new ArrayList<>();
-        for (int i=0; i < trains.length; i++) {
-            if (trains[i].getNumberOfGeneralSeats()>0) {
-                trainsWithGeneralSeats.add(trains[i]);
+        for (Train train: trains) {
+            if (train.getNumberOfGeneralSeats()>0) {
+                trainsWithGeneralSeats.add(train);
             }
         }
         return trainsWithGeneralSeats;
@@ -60,19 +57,23 @@ public class TrainTable  {
     public  ArrayList<Train> findTrainsByCityAndTime(String city, String time){
         ArrayList<Train> neededTrains = new ArrayList<>();
 
-        for (int i = 0; i < trains.length; i++) {
+        for (Train train: trains) {
             int timeLine = TimeConventor.toMinute(time);
 
-            if (city.equalsIgnoreCase(trains[i].getFinalDestination()) &&
-                                    (TimeConventor.toMinute(trains[i].getTimeOfLeaving()) >= timeLine)) {
-                neededTrains.add(trains[i]);
+            if (city.equalsIgnoreCase(train.getFinalDestination()) &&
+                                    (TimeConventor.toMinute(train.getTimeOfLeaving()) >= timeLine)) {
+                neededTrains.add(train);
             }
         }
         return neededTrains;
     }
 
-    public Train[] getTrains() {
+    public ArrayList<Train> getTrains() {
         return trains;
+    }
+
+    public void setTrains(ArrayList<Train> trains) {
+        this.trains = trains;
     }
 }
 
