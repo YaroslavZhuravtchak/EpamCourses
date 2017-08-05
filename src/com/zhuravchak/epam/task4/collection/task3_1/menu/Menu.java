@@ -1,11 +1,7 @@
-package com.zhuravchak.epam.task4.collection.task3_1;
+package com.zhuravchak.epam.task4.collection.task3_1.menu;
 
-import com.zhuravchak.epam.task4.trains.file.TrainTableWriterAndReader;
-import com.zhuravchak.epam.task4.trains.module.Train;
-import com.zhuravchak.epam.task4.trains.module.TrainTable;
+import com.zhuravchak.epam.task4.collection.task3_1.generator.Generator;
 
-import java.awt.*;
-import java.io.File;
 import java.util.*;
 import java.util.List;
 

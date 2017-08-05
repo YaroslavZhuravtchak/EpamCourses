@@ -1,4 +1,4 @@
-package com.zhuravchak.epam.task4.collection.task3_1;
+package com.zhuravchak.epam.task4.collection.task3_1.generator;
 
 import java.util.*;
 
