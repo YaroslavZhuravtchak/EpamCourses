@@ -1,6 +1,6 @@
-package com.zhuravchak.epam.task3.sity.main;
+package com.zhuravchak.epam.task3.sity;
 
-import com.zhuravchak.epam.task3.sity.menu.*;
+import com.zhuravchak.epam.task3.sity.Menu;
 
 /**
  * Created by Yaroslav on 28-Jul-17.

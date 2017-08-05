@@ -48,7 +48,7 @@ public class CircleSet {
                   System.out.printf("Круг(x=%f, y=%f, r=%f) пересікається з кругом (x=%f, y=%f, r=%f)\n",
                                 c1.getX(), c1.getY(), c1.getR(), c2.getX(), c2.getY(), c2.getR());
                   flug = true;
-              } else if ((c1.getR()+c2.getR()) == calculateDistanceBetweenCenters(c1,c2)){
+              } else if (Math.abs((c1.getR()+c2.getR()) - calculateDistanceBetweenCenters(c1,c2))>1e-5){
                   System.out.printf("Круг(x=%f, y=%f, r=%f) дотикається з кругом (x=%f, y=%f, r=%f)\n",
                           c1.getX(), c1.getY(), c1.getR(), c2.getX(), c2.getY(), c2.getR());
                   flug = true;

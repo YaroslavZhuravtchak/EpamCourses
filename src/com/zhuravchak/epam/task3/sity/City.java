@@ -1,4 +1,4 @@
-package com.zhuravchak.epam.task3.sity.module;
+package com.zhuravchak.epam.task3.sity;
 
 import java.util.*;
 

@@ -1,6 +1,4 @@
-package com.zhuravchak.epam.task3.sity.menu;
-
-import com.zhuravchak.epam.task3.sity.module.*;
+package com.zhuravchak.epam.task3.sity;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
