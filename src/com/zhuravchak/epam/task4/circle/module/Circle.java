@@ -25,4 +25,9 @@ public class Circle {
     public double getR() {
         return r;
     }
+
+    @Override
+    public String toString() {
+        return "(x=" + x + " y=" + y +" r=" + r +")" ;
+    }
 }

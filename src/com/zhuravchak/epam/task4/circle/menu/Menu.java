@@ -50,13 +50,32 @@ public class Menu {
                 double y = getDoubleFromConsole();
                 System.out.println("Ведіть радіус круга:");
                 double r = getDoubleFromConsole();
-
+                while(r<0){
+                    System.out.println("Pадіус круга не може бути відємним числом.");
+                    System.out.println("Ведіть радіус круга ще раз:");
+                    r = getDoubleFromConsole();
+                }
                 circleSet.addCircle(x,y,r);
+                System.out.println("Круг додано в колекцію");
 
             } else if (ch.equalsIgnoreCase("F")) {
-
-                circleSet.findIntersectAndTouchedCircles();
-
+                if(circleSet.getCircles().size()<2){
+                     System.out.println("В колекції недостатньо кругів для порівняння");
+                } else {
+                    circleSet.findIntersectAndTouchedCircles();
+                    if (circleSet.getIntersectedCircles().size() == 0 && circleSet.getTouchedCircles().size() == 0) {
+                        System.out.println("Жодні круги не пересікаються і не дотикаються");
+                    } else{
+                        if (circleSet.getIntersectedCircles().size() > 0) {
+                            System.out.println("\nКруги які пересікаються:");
+                            System.out.println(circleSet.getIntersectedCircles());
+                        }
+                        if (circleSet.getTouchedCircles().size() > 0) {
+                            System.out.println("\nКруги які дотикаються:");
+                            System.out.println(circleSet.getTouchedCircles());
+                        }
+                    }
+                }
             } else if (ch.equalsIgnoreCase("E")) {
                 break;
             }

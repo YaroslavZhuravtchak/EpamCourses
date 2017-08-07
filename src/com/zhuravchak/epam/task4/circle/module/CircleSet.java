@@ -1,7 +1,5 @@
 package com.zhuravchak.epam.task4.circle.module;
 
-//import javafx.scene.shape.Circle;
-
 import java.util.*;
 
 /**
@@ -9,56 +7,54 @@ import java.util.*;
  */
 public class CircleSet {
 
-    public Set<Circle> circles = new HashSet<>();
+    private Set<Circle> circles = new HashSet<>();
+    private Map<Circle, Circle> intersectedCircles = new HashMap();
+    private Map<Circle, Circle> touchedCircles = new HashMap<>();
 
     public void addCircle(double x, double y, double r){
         circles.add(new Circle(x,y,r));
     }
 
     public void findIntersectAndTouchedCircles() {
-        boolean isTouch = false;
-        if(circles.size()<2){
-            System.out.println("В колекції недостатньо кругів для порівняння");
-        } else {
+
             Set<Circle> copyOfCircles = new HashSet<>(circles);
-            Iterator<Circle> iterator = circles.iterator();
+
             for (Circle circle : circles) {
                 copyOfCircles.remove(circle);
                 for (Circle copyOfCircle : copyOfCircles) {
-                    if(compareCircles(circle, copyOfCircle)){
-                        isTouch = true;
-                    }
+                    compareCircles(circle, copyOfCircle);
                 }
             }
-            if(!isTouch){
-                System.out.println("Жодні круги не пересікаються і не дотикаються");
-            }
+
+
+    }
+
+    public void compareCircles(Circle c1, Circle c2){
+
+        if (Math.abs((c1.getR()+c2.getR()) - calculateDistanceBetweenCenters(c1,c2)) < 0.00001) {
+            touchedCircles.put(c1, c2);
         }
-
+        else if (c1.getR()+c2.getR() > calculateDistanceBetweenCenters(c1,c2)) {
+            intersectedCircles.put(c1, c2);
+        }
     }
 
-    @Override
-    public boolean equals(Object obj) {
-        return super.equals(obj);
-    }
-
-    public boolean compareCircles(Circle c1, Circle c2){
-        boolean flug = false;
-              if (c1.getR()+c2.getR() > calculateDistanceBetweenCenters(c1,c2)) {
-                  System.out.printf("Круг(x=%f, y=%f, r=%f) пересікається з кругом (x=%f, y=%f, r=%f)\n",
-                                c1.getX(), c1.getY(), c1.getR(), c2.getX(), c2.getY(), c2.getR());
-                  flug = true;
-              } else if (Math.abs((c1.getR()+c2.getR()) - calculateDistanceBetweenCenters(c1,c2))>1e-5){
-                  System.out.printf("Круг(x=%f, y=%f, r=%f) дотикається з кругом (x=%f, y=%f, r=%f)\n",
-                          c1.getX(), c1.getY(), c1.getR(), c2.getX(), c2.getY(), c2.getR());
-                  flug = true;
-              }
-              return flug;
-    }
      public double calculateDistanceBetweenCenters(Circle c1, Circle c2){
 
         return Math.sqrt(Math.pow(c1.getX() - c2.getX(),2) + Math.pow(c1.getY() - c2.getY(),2));
 
      }
+
+    public Set<Circle> getCircles() {
+        return circles;
+    }
+
+    public Map<Circle, Circle> getIntersectedCircles() {
+        return intersectedCircles;
+    }
+
+    public Map<Circle, Circle> getTouchedCircles() {
+        return touchedCircles;
+    }
 }
 
