@@ -25,8 +25,6 @@ public class CircleSet {
                     compareCircles(circle, copyOfCircle);
                 }
             }
-
-
     }
 
     public void compareCircles(Circle c1, Circle c2){
