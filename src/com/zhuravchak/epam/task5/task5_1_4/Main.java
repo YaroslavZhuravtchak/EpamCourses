@@ -16,7 +16,7 @@ public class Main {
 
         ArraySummator summator = new ArraySummator(numbers, 0, numbers.length);
 
-        int sum = summator.invoke();
+        int sum = pool.invoke(summator);
 
         System.out.println(sum);
     }
