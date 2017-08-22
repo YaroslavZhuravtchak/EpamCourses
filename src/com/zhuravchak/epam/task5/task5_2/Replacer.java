@@ -28,7 +28,6 @@ public class Replacer extends RecursiveAction {
                     invokeAll(new Replacer(files[i]));
                 } else {
                     String name = files[i].getName();
-
                     String[] str = name.split("[.]");
 
                     if(str.length==2&&str[1].equals("java")){
@@ -43,7 +42,7 @@ public class Replacer extends RecursiveAction {
                                 search = sc.next();
                                if(search.length()>3) {
                                    replace = search.toUpperCase();
-                                   System.out.println(name + ":  " + search +" -> "+replace);
+                                   System.out.println(name + ":  " + search + " -> " + replace);
                                    Files.write(path,
                                            new String(Files.readAllBytes(path), charset).replace(search, replace)
                                                    .getBytes(charset));
