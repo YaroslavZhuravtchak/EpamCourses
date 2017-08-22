@@ -30,7 +30,7 @@ public class Replacer extends RecursiveAction {
                     String name = files[i].getName();
                     String[] str = name.split("[.]");
 
-                    if(str.length==2&&str[1].equals("java")){
+                    if (str.length==2&&str[1].equals("java")) {
 
                         try (Scanner sc = new Scanner(files[i]).useDelimiter("[ \\s,)'\"@<>{}/\\]\\[=+\\-*|&(?!:;.\\n]")) {
                             String search;
@@ -38,9 +38,9 @@ public class Replacer extends RecursiveAction {
                             Path path = files[i].toPath();
                             Charset charset = StandardCharsets.UTF_8;
 
-                            while(sc.hasNext()) {
+                            while (sc.hasNext()) {
                                 search = sc.next();
-                               if(search.length()>3) {
+                               if (search.length()>3) {
                                    replace = search.toUpperCase();
                                    System.out.println(name + ":  " + search + " -> " + replace);
                                    Files.write(path,
